@@ -3,18 +3,20 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # деплой с main-ветки
+      - main  # Запускаем деплой при пуше в main
+
+permissions:
+  contents: write   # 🔹 даём Actions право пушить в gh-pages
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: 20
 
@@ -29,4 +31,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          publish_branch: gh-pages
