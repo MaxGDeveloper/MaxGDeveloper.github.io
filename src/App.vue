@@ -67,19 +67,19 @@
     <PhaserGame ref="phaserRef" @current-active-scene="currentScene" />
     <div>
         <div>
-            <button class="button" @click="changeScene">Change Scene</button>
+            <button class="button" @click="changeScene">Сменить сцену</button>
         </div>
         <div>
             <button :disabled="canMoveSprite" class="button" @click="moveSprite">
-                Toggle Movement
+                Переключить движение
             </button>
         </div>
         <div class="spritePosition">
-            Sprite Position:
+            Позиция логотипа:
             <pre>{{ spritePosition }}</pre>
         </div>
         <div>
-            <button class="button" @click="addSprite">Add New Sprite</button>
+            <button class="button" @click="addSprite">Добавить новый объект</button>
         </div>
     </div>
 </template>
