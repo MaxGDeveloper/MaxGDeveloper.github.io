@@ -22,7 +22,7 @@ jobs:
         run: npm ci
 
       - name: Build project
-        run: npm run build -- --config vite.config.prod.mjs
+        run: npm run build -- --config ./vite/config.prod.mjs
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
