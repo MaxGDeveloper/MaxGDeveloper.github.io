@@ -3,9 +3,6 @@
     import type { MainMenu } from './game/scenes/MainMenu'
     import PhaserGame from './game/PhaserGame.vue'
 
-    // The sprite can only be moved in the MainMenu Scene
-    const canMoveSprite = ref()
-
     //  References to the PhaserGame component (game and scene are exposed)
     const phaserRef = ref()
 
@@ -13,20 +10,15 @@
         const scene = toRaw(phaserRef.value.scene) as MainMenu
 
         if (scene) {
-            //  Call the changeScene method defined in the `MainMenu`, `Game` and `GameOver` Scenes
+            // Вызывает метод changeScene объявленный в каждой конкретной сцене (MainMenu, GameOver)
             scene.changeScene()
         }
-    }
-
-    // Event emitted from the PhaserGame component
-    const currentScene = (scene: MainMenu) => {
-        canMoveSprite.value = scene.scene.key !== 'MainMenu'
     }
 </script>
 
 <template>
     <div style="display: flex; flex-direction: column">
-        <PhaserGame ref="phaserRef" @current-active-scene="currentScene" />
+        <PhaserGame ref="phaserRef" />
         <button @click="changeScene">Сменить сцену</button>
     </div>
 </template>
