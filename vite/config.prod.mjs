@@ -15,15 +15,16 @@ const phasermsg = () => {
 }
 
 export default defineConfig({
-    base: './',
+    base: '/',
     plugins: [vue(), phasermsg()],
     resolve: {
         alias: {
-            '@': fileURLToPath(new URL('../src', import.meta.url))
+            '@': fileURLToPath(new URL('./src', import.meta.url))
         }
     },
     logLevel: 'warning',
     build: {
+        outDir: 'dist',
         rollupOptions: {
             output: {
                 manualChunks: {
