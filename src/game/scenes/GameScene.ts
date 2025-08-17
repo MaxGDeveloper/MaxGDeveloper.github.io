@@ -1,25 +1,23 @@
-import { EventBus } from '../EventBus'
 import { Scene } from 'phaser'
-
-import { transitionTo } from '../../utils/sceneTransition'
+import { EventBus } from '../EventBus'
 import { createButton } from '../../utils/createButton'
+import { transitionTo } from '../../utils/sceneTransition'
 
-export class SettingsScene extends Scene {
+export class GameScene extends Scene {
     camera: Phaser.Cameras.Scene2D.Camera
     background: Phaser.GameObjects.Image
-    settingsText: Phaser.GameObjects.Text
+    gameOverText: Phaser.GameObjects.Text
 
     constructor() {
-        super('SettingsScene')
+        super('GameScene')
     }
 
     create() {
-        const { width, height } = this.scale
-
         this.camera = this.cameras.main
+        this.camera.setBackgroundColor('#34ebd8')
 
-        this.settingsText = this.add
-            .text(width / 2, height / 2.5, 'Настройки', {
+        this.gameOverText = this.add
+            .text(540, 312, 'Тут будет игра', {
                 fontFamily: 'Arial Black',
                 fontSize: 64,
                 color: '#ffffff',
@@ -30,8 +28,8 @@ export class SettingsScene extends Scene {
             .setOrigin(0.5)
             .setDepth(100)
 
-        createButton(this, width / 2, height * 0.55, 'Назад', () => {
-            transitionTo(this, 'MainMenuScene') // переход в главное меню
+        createButton(this, 540, 400, 'Завершить игру', () => {
+            transitionTo(this, 'MainMenuScene')
         })
 
         EventBus.emit('current-scene-ready', this)

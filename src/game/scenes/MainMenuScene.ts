@@ -2,6 +2,9 @@ import { GameObjects, Scene } from 'phaser'
 
 import { EventBus } from '../EventBus'
 
+import { transitionTo } from '../../utils/sceneTransition'
+import { createButton } from '../../utils/createButton'
+
 export class MainMenuScene extends Scene {
     background: GameObjects.Image
     logo: GameObjects.Image
@@ -25,12 +28,12 @@ export class MainMenuScene extends Scene {
         this.add.image(width / 2, height * 0.2, 'logo').setScale(0.2)
 
         // Кнопка "Начать игру"
-        this.createButton(width / 2, height * 0.4, 'Начать игру', () => {
-            this.scene.start('GameScene') // переход в игровую сцену
+        createButton(this, width / 2, height * 0.4, 'Начать игру', () => {
+            transitionTo(this, 'GameScene') // переход в игровую сцену
         })
 
-        this.createButton(width / 2, height * 0.55, 'Настройки', () => {
-            this.scene.start('SettingsScene') // переход в сцену настроек
+        createButton(this, width / 2, height * 0.55, 'Настройки', () => {
+            transitionTo(this, 'SettingsScene') // переход в сцену настроек
         })
 
         EventBus.emit('current-scene-ready', this)
@@ -38,27 +41,5 @@ export class MainMenuScene extends Scene {
 
     changeScene() {
         this.scene.start('SettingsScene')
-    }
-
-    private createButton(x: number, y: number, text: string, callback: () => void) {
-        const btn = this.add.image(x, y, 'btn').setInteractive().setScale(0.3, 0.2)
-
-        this.add
-            .text(x, y, text, {
-                fontFamily: '"Press Start 2P"',
-                fontSize: '13px',
-                color: '#fff'
-            })
-            .setOrigin(0.5)
-
-        btn.on('pointerover', () => {
-            btn.setTexture('btn_hover')
-        })
-
-        btn.on('pointerout', () => {
-            btn.setTexture('btn')
-        })
-
-        btn.on('pointerdown', callback)
     }
 }

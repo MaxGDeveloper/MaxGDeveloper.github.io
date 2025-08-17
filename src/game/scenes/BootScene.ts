@@ -34,6 +34,5 @@ export class BootScene extends Scene {
                 this.scene.start('MainMenuScene')
             }
         })
-        this.scene.start('MainMenuScene')
     }
 }
