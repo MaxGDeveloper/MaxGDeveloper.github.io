@@ -1,6 +1,7 @@
-import { Boot } from './scenes/Boot'
-import { Settings } from './scenes/Settings'
-import { MainMenu } from './scenes/MainMenu'
+import { BootScene } from './scenes/BootScene'
+import { SettingsScene } from './scenes/SettingsScene'
+import { MainMenuScene } from './scenes/MainMenuScene'
+import { BackgroundScene } from './scenes/BackgroundScene'
 import { AUTO, Game } from 'phaser'
 
 const config: Phaser.Types.Core.GameConfig = {
@@ -10,7 +11,7 @@ const config: Phaser.Types.Core.GameConfig = {
     parent: 'game-container',
     pixelArt: true,
     roundPixels: true,
-    scene: [Boot, MainMenu, Settings]
+    scene: [BootScene, BackgroundScene, MainMenuScene, SettingsScene]
 }
 
 const StartGame = (parent: string) => {

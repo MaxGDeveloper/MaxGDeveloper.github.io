@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import { ref, toRaw } from 'vue'
-    import type { MainMenu } from './game/scenes/MainMenu'
+    import type { MainMenu } from './game/scenes/MainMenuScene'
     import PhaserGame from './game/PhaserGame.vue'
 
     //  References to the PhaserGame component (game and scene are exposed)

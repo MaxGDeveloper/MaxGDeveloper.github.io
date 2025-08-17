@@ -1,13 +1,13 @@
 import { EventBus } from '../EventBus'
 import { Scene } from 'phaser'
 
-export class Settings extends Scene {
+export class SettingsScene extends Scene {
     camera: Phaser.Cameras.Scene2D.Camera
     background: Phaser.GameObjects.Image
     settingsText: Phaser.GameObjects.Text
 
     constructor() {
-        super('Settings')
+        super('SettingsScene')
     }
 
     create() {
@@ -28,14 +28,14 @@ export class Settings extends Scene {
             .setDepth(100)
 
         this.createButton(width / 2, height * 0.55, 'Назад', () => {
-            this.scene.start('MainMenu') // переход в игровую сцену
+            this.scene.start('MainMenuScene') // переход в игровую сцену
         })
 
         EventBus.emit('current-scene-ready', this)
     }
 
     changeScene() {
-        this.scene.start('MainMenu')
+        this.scene.start('MainMenuScene')
     }
 
     private createButton(x: number, y: number, text: string, callback: () => void) {
