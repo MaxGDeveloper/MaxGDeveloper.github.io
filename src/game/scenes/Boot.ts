@@ -1,4 +1,5 @@
 import { Scene } from 'phaser'
+import WebFont from 'webfontloader'
 
 export class Boot extends Scene {
     constructor() {
@@ -6,10 +7,19 @@ export class Boot extends Scene {
     }
 
     preload() {
-        //  The Boot Scene is typically used to load in any assets you require for your Preloader, such as a game logo or background.
-        //  The smaller the file size of the assets, the better, as the Boot Scene itself has no preloader.
+        WebFont.load({
+            custom: {
+                families: ['Press Start 2P'],
+                urls: ['public/assets/fonts.css']
+            }
+        })
 
-        // this.load.image('background', 'assets/bg.png')
+        // Загружаем WebFontLoader
+        this.load.script(
+            'webfont',
+            'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js'
+        )
+
         this.load.multiatlas(
             'main-background',
             'public/assets/mainBackground/mainBackground.json',
@@ -18,6 +28,6 @@ export class Boot extends Scene {
     }
 
     create() {
-        this.scene.start('Preloader')
+        this.scene.start('MainMenu')
     }
 }
