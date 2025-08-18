@@ -15,7 +15,7 @@ const phasermsg = () => {
 }
 
 export default defineConfig({
-    base: '/MaxGDeveloper.github.io/',
+    base: '/',
     plugins: [vue(), phasermsg()],
     resolve: {
         alias: {
