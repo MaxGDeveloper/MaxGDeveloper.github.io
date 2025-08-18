@@ -50,6 +50,9 @@ export class BackgroundScene extends Phaser.Scene {
             loop: true,
             volume: settings.gameMusicVolume
         }) as Phaser.Sound.WebAudioSound
+
+        // применим глобальную громкость эффектов
+        this.sound.volume = settings.sfxVolume
     }
 
     playMenuMusic() {

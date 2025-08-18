@@ -4,6 +4,7 @@ import { MainMenuScene } from './scenes/MainMenuScene'
 import { BackgroundScene } from './scenes/BackgroundScene'
 import { GameScene } from './scenes/GameScene'
 import { AUTO, Game } from 'phaser'
+import { GamePauseScene } from './scenes/GamePauseScene'
 
 const config: Phaser.Types.Core.GameConfig = {
     type: AUTO,
@@ -13,7 +14,7 @@ const config: Phaser.Types.Core.GameConfig = {
     pixelArt: true,
     roundPixels: true,
     dom: { createContainer: true }, // важно для DOM-элементов
-    scene: [BootScene, BackgroundScene, MainMenuScene, SettingsScene, GameScene]
+    scene: [BootScene, BackgroundScene, MainMenuScene, SettingsScene, GameScene, GamePauseScene]
 }
 
 const StartGame = (parent: string) => {

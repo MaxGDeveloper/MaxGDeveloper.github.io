@@ -26,6 +26,7 @@ export class BootScene extends Scene {
 
         // Загружаем ресурсы
         this.load.image('logo', 'public/assets/logo/ItLogo.png') // логотип IT Office
+        this.load.image('settings', 'public/assets/logo/Settings.png') // логотип настроек
         this.load.image('btn', 'public/assets/buttons/button.png') // кнопка (пиксель-арт)
         this.load.image('btn_hover', 'public/assets/buttons/button_hovered.png') // кнопка при наведении
     }
@@ -38,13 +39,14 @@ export class BootScene extends Scene {
                 urls: ['public/assets/fonts.css']
             },
             active: () => {
-                // Дефолтные настройки
-                const settings = {
-                    menuMusicVolume: Number(localStorage.getItem('menuMusicVolume') ?? 0.5),
-                    gameMusicVolume: Number(localStorage.getItem('gameMusicVolume') ?? 0.5),
-                    sfxVolume: Number(localStorage.getItem('sfxVolume') ?? 0.8)
+                // Если настроек ещё нет — создаём дефолт
+                if (!this.registry.has('settings')) {
+                    this.registry.set('settings', {
+                        menuMusicVolume: 0.5,
+                        gameMusicVolume: 0.5,
+                        sfxVolume: 0.8
+                    })
                 }
-                this.registry.set('settings', settings)
 
                 // Запускаем фон и меню
                 this.scene.launch('BackgroundScene')
