@@ -4,6 +4,7 @@ import { EventBus } from '../EventBus'
 
 import { transitionTo } from '../../utils/sceneTransition'
 import { createButton } from '../../utils/createButton'
+import { BackgroundScene } from './BackgroundScene'
 
 export class MainMenuScene extends Scene {
     background: GameObjects.Image
@@ -14,15 +15,12 @@ export class MainMenuScene extends Scene {
         super('MainMenuScene')
     }
 
-    preload() {
-        // Загружаем ресурсы
-        this.load.image('logo', 'public/assets/logo/ItLogo.png') // логотип IT Office
-        this.load.image('btn', 'public/assets/buttons/button.png') // кнопка (пиксель-арт)
-        this.load.image('btn_hover', 'public/assets/buttons/button_hovered.png') // кнопка при наведении
-    }
-
     create() {
         const { width, height } = this.scale
+
+        // Запускаем музыку меню
+        const bgScene = this.scene.get('BackgroundScene') as BackgroundScene
+        bgScene.playMenuMusic()
 
         // Логотип
         this.add.image(width / 2, height * 0.2, 'logo').setScale(0.2)

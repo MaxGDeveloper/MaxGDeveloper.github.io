@@ -13,6 +13,10 @@ export class GameScene extends Scene {
     }
 
     create() {
+        // Запуск игровой музыки
+        const bgScene = this.scene.get('BackgroundScene') as any
+        bgScene.playGameMusic()
+
         this.camera = this.cameras.main
         this.camera.setBackgroundColor('#34ebd8')
 

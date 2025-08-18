@@ -2,8 +2,8 @@ import { BootScene } from './scenes/BootScene'
 import { SettingsScene } from './scenes/SettingsScene'
 import { MainMenuScene } from './scenes/MainMenuScene'
 import { BackgroundScene } from './scenes/BackgroundScene'
-import { AUTO, Game } from 'phaser'
 import { GameScene } from './scenes/GameScene'
+import { AUTO, Game } from 'phaser'
 
 const config: Phaser.Types.Core.GameConfig = {
     type: AUTO,
