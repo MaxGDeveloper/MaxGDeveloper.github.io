@@ -16,19 +16,19 @@ export class BootScene extends Scene {
         // Загружаем фон
         this.load.multiatlas(
             'main-background',
-            'public/assets/mainBackground/mainBackground.json',
-            'public/assets/mainBackground'
+            'assets/mainBackground/mainBackground.json',
+            'assets/mainBackground'
         )
 
         // Загрузка музыки
-        this.load.audio('menuMusic', 'public/assets/music/mainMenuMusic.mp3')
-        this.load.audio('gameMusic', 'public/assets/music/GameMusic.mp3')
+        this.load.audio('menuMusic', 'assets/music/mainMenuMusic.mp3')
+        this.load.audio('gameMusic', 'assets/music/GameMusic.mp3')
 
         // Загружаем ресурсы
-        this.load.image('logo', 'public/assets/logo/ItLogo.png') // логотип IT Office
-        this.load.image('settings', 'public/assets/logo/Settings.png') // логотип настроек
-        this.load.image('btn', 'public/assets/buttons/button.png') // кнопка (пиксель-арт)
-        this.load.image('btn_hover', 'public/assets/buttons/button_hovered.png') // кнопка при наведении
+        this.load.image('logo', 'assets/logo/ItLogo.png') // логотип IT Office
+        this.load.image('settings', 'assets/logo/Settings.png') // логотип настроек
+        this.load.image('btn', 'assets/buttons/button.png') // кнопка (пиксель-арт)
+        this.load.image('btn_hover', 'assets/buttons/button_hovered.png') // кнопка при наведении
     }
 
     create() {
