@@ -36,7 +36,7 @@ export class BootScene extends Scene {
         WebFont.load({
             custom: {
                 families: ['Press Start 2P'],
-                urls: ['public/assets/fonts.css']
+                urls: [import.meta.env.BASE_URL + 'assets/fonts.css']
             },
             active: () => {
                 // Если настроек ещё нет — создаём дефолт
