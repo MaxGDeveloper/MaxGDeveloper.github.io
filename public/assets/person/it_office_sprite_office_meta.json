@@ -1,0 +1,30 @@
+{
+  "file": "it_office_sprite_office.png",
+  "frameWidth": 32,
+  "frameHeight": 40,
+  "columns": 3,
+  "rows": 4,
+  "mapping": {
+    "walk-down": [
+      0,
+      1,
+      2
+    ],
+    "walk-left": [
+      3,
+      4,
+      5
+    ],
+    "walk-right": [
+      6,
+      7,
+      8
+    ],
+    "walk-up": [
+      9,
+      10,
+      11
+    ]
+  },
+  "notes": "Office worker: suit, tie, badge, occasional coffee mug in hand. FrameHeight=40 -> update Phaser preload accordingly."
+}

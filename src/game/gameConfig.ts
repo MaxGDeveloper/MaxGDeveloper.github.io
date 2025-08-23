@@ -12,6 +12,13 @@ const config: Phaser.Types.Core.GameConfig = {
     height: 612,
     parent: 'game-container',
     pixelArt: true,
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { x: 0, y: 0 },
+            debug: false
+        }
+    },
     roundPixels: true,
     dom: { createContainer: true }, // важно для DOM-элементов
     scene: [BootScene, BackgroundScene, MainMenuScene, SettingsScene, GameScene, GamePauseScene]
